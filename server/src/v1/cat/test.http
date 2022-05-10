@@ -1,5 +1,7 @@
 @host = http://127.0.0.1:6000/v1/cats
 
+
+GET {{host}}/?fields=name&offset=0&limit=2 HTTP/1.1
 GET {{host}}/ HTTP/1.1
 
 
@@ -32,7 +34,7 @@ Content-Type: application/json
 
 
 ###
-GET {{host}}/22 HTTP/1.1
+GET {{host}}/24?fields=id HTTP/1.1
 
 
 ###

@@ -9,12 +9,13 @@ import Unauthorized from './components/Unauthorized';
 import Lounge from './components/Lounge';
 import LinkPage from './components/LinkPage';
 import RequireAuth from './components/RequireAuth';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import useAxiosPrivate from './hooks/useAxiosPrivate';
 import DogAdd from './components/DogAdd';
 import DogDetail from './components/DogDetail';
 import DogEdit from './components/DogEdit';
+import DogDelete from './components/DogDelete';
 
 const ROLES = {
   'User': 2001,
@@ -65,6 +66,13 @@ function App() {
     getDogs(url);
   }
 
+  const dogDeleteHandler = async (dog) => {
+    console.log('DOG: ', dog);
+    const response = await axiosPrivate.delete('/dogs/', {data : JSON.stringify(dog.id)});
+    console.log(response.data);
+    getDogs(url);
+  }
+
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
@@ -84,6 +92,7 @@ function App() {
           <Route path="dogs/new" element={<DogAdd addHandler={dogAddHandler}/>} />
           <Route path="/dogs/view/:id" element={<DogDetail />} />
           <Route path="/dogs/edit/:id" element={<DogEdit updateHandler={dogUpdateHandler}/>} />
+          <Route path="/dogs/delete/:id" element={<DogDelete deleteHandler={dogDeleteHandler}/>} />
         </Route>
 
 

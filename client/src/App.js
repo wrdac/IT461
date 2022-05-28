@@ -88,8 +88,8 @@ function App() {
         </Route>
 
         <Route element={<RequireAuth allowedRoles={[ROLES.Editor]} />}>
-          <Route path="dogs" element={<Dogs />} />
-          <Route path="dogs/new" element={<DogAdd addHandler={dogAddHandler}/>} />
+          <Route path="dogs" element={<Dogs dogs={dogs} getDogs={getDogs}/>} />
+          <Route path="dogs/create" element={<DogAdd addHandler={dogAddHandler}/>} />
           <Route path="/dogs/view/:id" element={<DogDetail />} />
           <Route path="/dogs/edit/:id" element={<DogEdit updateHandler={dogUpdateHandler}/>} />
           <Route path="/dogs/delete/:id" element={<DogDelete deleteHandler={dogDeleteHandler}/>} />

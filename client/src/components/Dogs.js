@@ -56,3 +56,4 @@ const Dogs = ({dogs, getDogs}) => {
 };
 
 export default Dogs;
+ 

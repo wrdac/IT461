@@ -40,7 +40,7 @@ class UserModel():
         cols = 'COUNT(*) AS total' if count_only else ','.join(fields)
         sql = "SELECT " + cols + " FROM users"
         if not count_only:
-            sql += " ORDER BY name LIMIT " + str(offset) + ", " + str(limit)
+            sql += " ORDER BY username LIMIT " + str(offset) + ", " + str(limit)
         if count_only:
             row = db.fetchone(sql)
             return row['total'] if row else 0

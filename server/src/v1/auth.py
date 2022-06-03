@@ -19,7 +19,7 @@ def verify_token(token):
 
 def login(username, password):
     # TODO: use the database to verify the username and password
-    if UserModel.read(filters={'username':username, 'password':password}) is not None:
+    if UserModel.read({'username':username, 'password':password}) is not None:
         payload = {
             'username': username,
             'id': 100,

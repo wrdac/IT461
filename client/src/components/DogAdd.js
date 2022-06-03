@@ -15,7 +15,7 @@ const DogAdd = ({addHandler}) => {
     return (
         <form onSubmit={formHandler}>
             <label>Name</label>
-            <input type="text" onchange={(e)=>{setName(e.target.value)}}/>
+            <input type="text" onChange={(e)=>{setName(e.target.value)}}/>
             <button>Add</button>
         </form>
     )

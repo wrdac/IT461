@@ -4,7 +4,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 const DogDelete = ({deleteHandler}) => {
     const location = useLocation();
     const dog = location.state.dog;
-    const name = useState(dog.name);
     const [choose, setChoose] = useState(false);
     const navigate = useNavigate();
 
@@ -20,7 +19,7 @@ const DogDelete = ({deleteHandler}) => {
     return(
         <form onSubmit={formHandler}>
             <div>
-                <label>Are you sure you want to delete {name} from the Dog List?</label>
+                <label>Are you sure you want to delete {dog.name} from the Dog List?</label>
             </div>
             <button onClick={()=>{setChoose(true)}}>Yes</button>
             <button>No</button>
